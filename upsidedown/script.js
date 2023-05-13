@@ -58,9 +58,9 @@ button.addEventListener('click', function() {
 				if (!char) console.log('[UpsideDown]', 'Unknown char "' + tmp + '"');
 				outputWords = (char || tmp) + outputWords;
 			}
-			outputWords = outputWords.replaceAll('s%', '%s');
-			outputWords = outputWords.replaceAll('s$⥝%', '%1$s');
-			outputWords = outputWords.replaceAll('s$ᘔ%', '%2$s');
+			outputWords = outputWords.replace(/s%/g, '%s');
+			outputWords = outputWords.replace(/s\$⥝%/g, '%1$s');
+			outputWords = outputWords.replace(/s\$ᘔ%/g, '%2$s');
 			output.value += words[1] + (isJson ? outputWords + words[3] : '=' + outputWords) + ',' + '\n';
 		} else {
 			output.value += line + '\n';
