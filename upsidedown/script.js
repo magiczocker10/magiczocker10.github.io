@@ -1,9 +1,9 @@
-const button = document.getElementById('convert');
-const unicode = document.getElementById('unicode');
-const input = document.getElementById('input');
-const output = document.getElementById('output');
+var button = document.getElementById('convert');
+var unicode = document.getElementById('unicode');
+var input = document.getElementById('input');
+var output = document.getElementById('output');
 
-const charMap = [
+var charMap = [
 	{ // 1.13 - 1.19 .json files
 		' ': ' ', '!': '\\u00a1', '"': '', '#': '#', '$': '$', '%': '%', '&': '\\u214b', "'": ',',
 		'(': ')', ')': '(', '*': '*', '+': '+', ',': '\\u2018', '-': '-', '.': '\\u02d9', '/': '/',
@@ -44,17 +44,17 @@ function isJsonString(str) {
 }
 
 button.addEventListener('click', function() {
-	const text = input.value.split('\n');
-	const isJson = isJsonString(input.value);
+	var text = input.value.split('\n');
+	var isJson = isJsonString(input.value);
 	output.value = '';
 	text.forEach(function (line) {
-		let outputWords = '';
-		const words = isJson ? line.match(/(^.+: ")(.+)(")/) : line.match(/(.+)=(.+)/);
+		var outputWords = '';
+		var words = isJson ? line.match(/(^.+: ")(.+)(")/) : line.match(/(.+)=(.+)/);
 		if (words) {
-			const split = words[2].split('');
+			var split = words[2].split('');
 			for (var i = 0; i<split.length; i++) {
-				const tmp = split[i];
-				const char = charMap[unicode.checked ? 1 : 0][tmp];
+				var tmp = split[i];
+				var char = charMap[unicode.checked ? 1 : 0][tmp];
 				if (!char) console.log('[UpsideDown]', 'Unknown char "' + tmp + '"');
 				outputWords = (char || tmp) + outputWords;
 			}
