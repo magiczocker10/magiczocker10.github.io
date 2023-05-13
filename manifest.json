@@ -1,0 +1,33 @@
+{
+	"name": "Upside down converter",
+	"short_name": "UDC",
+	"start_url": "index.html",
+	"display": "standalone",
+	"background_color": "#36454f",
+	"theme_color": "#36454f",
+	"scope": ".",
+	"description": "Generates en_ud language from en_us file.",
+	"icons": [
+		{
+			"src": "icons/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "icons/android-chrome-384x384.png",
+			"sizes": "384x384",
+			"type": "image/png"
+		},
+		{
+			"src": "icons/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		},
+		{
+			"src": "images/maskable_icon.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	]
+}
