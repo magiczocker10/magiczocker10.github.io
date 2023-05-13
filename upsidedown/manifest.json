@@ -1,5 +1,7 @@
 {
 	"name": "Upside down converter",
+	"background_color": "#36454f",
+	"theme_color": "#fb8b23",
 	"icons": [
 		{
 			"src": "android-icon-36x36.png",
