@@ -1,6 +1,6 @@
 html {
-	background-color: hsl(204 19% 26% / 1);
-	color: hsl(30 67% 94% / 1);
+	background-color: hsl(204 19% 26%);
+	color: hsl(30 67% 94%);
 	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 	padding: 1rem;
 }
@@ -42,10 +42,10 @@ footer {
 
 /* Textarea */
 textarea {
-	background-color: hsl(204 19% 46% / 1);
-	border-color: hsl(204 19% 46% / 1);
+	background-color: hsl(204 19% 46%);
+	border-color: hsl(204 19% 46%);
 	box-sizing: border-box;
-	color: hsl(30 67% 94% / 1);
+	color: hsl(30 67% 94%);
 	height: 256px;
 	resize: none;
 	width: 100%;
@@ -55,8 +55,8 @@ textarea {
 button {
 	align-items: center;
 	-webkit-appearance: none;
-	background-color: hsl(29 96% 56% / 1);
-	border: 1px solid hsl(29 96% 56% / 1);
+	background-color: hsl(29 96% 56%);
+	border: 1px solid hsl(29 96% 56%);
 	border-radius: 3px;
 	box-sizing: content-box;
 	color: #000;
@@ -107,22 +107,22 @@ button:hover {
 	height: 20px;
 	min-width: 20px;
 	width: 20px;
-	background-color: hsl(0 0% 100% / 1);
+	background-color: hsl(0 0% 100%);
 	border-radius: 50%;
 	left: 5px;
 	box-shadow: 0 3px 1px -2px rgba(0,0,0,.14), 0 2px 2px 0 rgba(0,0,0,.098), 0 1px 5px 0 rgba(0,0,0,.084);
 }
 #options input:checked + label::after {
-	background-color: hsl(29 96% 56% / 1);
+	background-color: hsl(29 96% 56%);
 	transform: translate(80%, -50%);
 }
 #options label::before {
-	background-color: hsl(0 0% 62% / 1);
+	background-color: hsl(0 0% 62%);
 	border-radius: 8px;
 	height: 14px;
 	left: 6px;
 	width: 34px;
 }
 #options input:checked + label::before {
-	background-color: hsl(29 96% 74% / 1);
+	background-color: hsl(29 96% 74%);
 }
