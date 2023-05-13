@@ -28,20 +28,16 @@ footer {
 		grid-template-columns: 1fr;
 	}
 }
-#container label {
-	display: none;
-}
 
 /* Textarea header */
-.header {
+#container label {
+	display: block;
 	height: 32px;
-	padding: 8px 12px;
-}
-.header-text {
 	font-style: normal;
 	font-weight: 600;
 	font-size: 16px;
 	line-height: 32px;
+	padding: 8px 12px;
 }
 
 /* Option footer */
