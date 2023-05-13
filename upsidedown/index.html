@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Responsive -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<!-- Title -->
+		<title>Upside down generator</title>
+ 
+		<!-- Meta Tags required for Progressive Web App -->
+		<meta name="apple-mobile-web-app-status-bar" content="#fb8b23">
+		<meta name="theme-color" content="#fb8b23">
+
+		<!-- Manifest File link -->
+		<link rel="manifest" href="manifest.json">
+
+		<!-- CSS and JS -->
+		<link rel="stylesheet" href="style.css">
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<main>
+			<div id="container">
+				<section>
+					<label for="input">English text</label>
+					<textarea id="input"></textarea>
+				</section>
+				<section>
+					<label for="output">Upside down text</label>
+					<textarea id="output" readonly></textarea>
+				</section>
+			</div>
+			<div id="options">
+				<input type="checkbox" id="unicode" checked>
+				<label for="unicode">Unicode</label>
+				<button id="convert">Convert</button>
+			</div>
+			<footer>
+				© 2023 magiczocker10
+			</footer>
+		</main>
+		<script>
+			window.addEventListener('load', () => {
+				registerSW();
+			});
+
+			// Register the Service Worker
+			async function registerSW() {
+				if ('serviceWorker' in navigator) {
+					try {
+						await navigator
+							.serviceWorker
+							.register('serviceworker.js');
+					}
+					catch (e) {
+						console.log('SW registration failed');
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
