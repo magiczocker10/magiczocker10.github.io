@@ -13,21 +13,23 @@ html {
 }
 
 footer {
-	color: hsl(204 19% 34% / 1);
 	position: absolute;
 	bottom: 1rem;
 }
 
 /* Main container */
-.container {
+#container {
 	display: grid;
 	grid-gap: 1rem;
 	grid-template-columns: 1fr 1fr;
 }
 @media (max-width: 800px) {
-	.container {
+	#container {
 		grid-template-columns: 1fr;
 	}
+}
+#container label {
+	display: none;
 }
 
 /* Textarea header */
@@ -43,7 +45,7 @@ footer {
 }
 
 /* Option footer */
-.options {
+#options {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -68,7 +70,7 @@ button {
 	border: 1px solid var(--theme-accent);
 	border-radius: 3px;
 	box-sizing: content-box;
-	color: #fff;
+	color: #000;
 	cursor: default;
 	display: inline-flex;
 	font-size: 12px;
@@ -91,17 +93,17 @@ button:hover {
 }
 
 /* Toggle from https://fandomdesignsystem.com */
-input {
+#options input {
 	display: none;
 }
-label {
+#options label {
 	cursor: pointer;
 	font-size: 16px;
 	padding: 7px 5px 7px 52px;
 	position: relative;
 }
-label::before,
-label::after {
+#options label::before,
+#options label::after {
 	content: "";
 	margin: 0;
 	outline: 0;
@@ -112,7 +114,7 @@ label::after {
 	transition-duration: .3s;
 	transition-timing-function: ease;
 }
-label::after {
+#options label::after {
 	height: 20px;
 	min-width: 20px;
 	width: 20px;
@@ -121,17 +123,17 @@ label::after {
 	left: 5px;
 	box-shadow: 0 3px 1px -2px rgba(0,0,0,.14), 0 2px 2px 0 rgba(0,0,0,.098), 0 1px 5px 0 rgba(0,0,0,.084);
 }
-input:checked + label::after {
+#options input:checked + #options label::after {
 	background-color: var(--theme-accent);
 	transform: translate(80%, -50%);
 }
-label::before {
+#options label::before {
 	background-color: var(--theme-toggle-before);
 	border-radius: 8px;
 	height: 14px;
 	left: 6px;
 	width: 34px;
 }
-input:checked + label::before {
+#options input:checked + #options label::before {
 	background-color: var(--theme-accent2);
 }

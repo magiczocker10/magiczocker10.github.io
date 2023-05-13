@@ -10,21 +10,23 @@
 		<script src="script.js" defer></script>
 	</head>
 	<body>
-		<div class="container">
+		<div id="container">
 			<section>
 				<div class="header">
 					<div class="header-text">English text</div>
 				</div>
+				<label for="input">Input</label>
 				<textarea id="input"></textarea>
 			</section>
 			<section>
 				<div class="header">
 					<div class="header-text">Upside down text</div>
 				</div>
+				<label for="output">Output</label>
 				<textarea id="output" readonly></textarea>
 			</section>
 		</div>
-		<div class="options">
+		<div id="options">
 			<input type="checkbox" id="unicode" checked>
 			<label for="unicode">Unicode</label>
 			<button id="convert">Convert</button>
