@@ -11,13 +11,16 @@ footer {
 
 /* Main container */
 #container {
-	display: grid;
+	display: flex;
+	flex-direction: row;
 	grid-gap: 1rem;
-	grid-template-columns: 1fr 1fr;
+}
+#container section {
+	flex-basis: 50%;
 }
 @media (max-width: 800px) {
 	#container {
-		grid-template-columns: 1fr;
+		flex-direction: column;
 	}
 }
 
