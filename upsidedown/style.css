@@ -1,6 +1,6 @@
 html {
 	--theme-background: hsl(204 19% 26% / 1);
-	--theme-background2: hsl(204 19% 46% / 1);
+	--theme-textarea: hsl(204 19% 46% / 1);
 	--theme-accent: hsl(29 96% 56% / 1);
 	--theme-accent2: hsl(29 96% 74% / 1);
 	--theme-text: hsl(30 67% 94% / 1);
@@ -13,7 +13,8 @@ html {
 }
 
 footer {
-	text-align: center;
+	position: absolute;
+	bottom: 1rem;
 }
 
 /* Main container */
@@ -49,7 +50,8 @@ footer {
 
 /* Textarea */
 textarea {
-	background-color: var(--theme-background2);
+	background-color: var(--theme-textarea);
+	border-color: var(--theme-textarea);
 	box-sizing: border-box;
 	color: var(--theme-text);
 	height: 256px;
@@ -118,7 +120,7 @@ button:hover {
 	left: 5px;
 	box-shadow: 0 3px 1px -2px rgba(0,0,0,.14), 0 2px 2px 0 rgba(0,0,0,.098), 0 1px 5px 0 rgba(0,0,0,.084);
 }
-#options input:checked + label::after {
+#options input:checked + #options label::after {
 	background-color: var(--theme-accent);
 	transform: translate(80%, -50%);
 }
@@ -129,6 +131,6 @@ button:hover {
 	left: 6px;
 	width: 34px;
 }
-#options input:checked + label::before {
+#options input:checked + #options label::before {
 	background-color: var(--theme-accent2);
 }
