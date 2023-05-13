@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="description" content="Generates en_ud language from en_us file" />
+		<meta charset="utf-8">
+		<title>Minecraft en_ud generator</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="magiczocker">
+		<link rel="stylesheet" href="style.css">
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<div class="container">
+			<section>
+				<div class="header">
+					<div class="header-text">English text</div>
+				</div>
+				<textarea id="input"></textarea>
+			</section>
+			<section>
+				<div class="header">
+					<div class="header-text">Upside down text</div>
+				</div>
+				<textarea id="output" readonly></textarea>
+			</section>
+		</div>
+		<div class="options">
+			<input type="checkbox" id="unicode" checked>
+			<label for="unicode">Unicode</label>
+			<button id="convert">Convert</button>
+		</div>
+		<footer>
+			© 2023 magiczocker10
+		</footer>
+	</body>
+</html>
