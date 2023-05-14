@@ -50,7 +50,7 @@ convert.addEventListener('click', function() {
 	var text = input.value.split('\n');
 	var isJson = isJsonString(input.value);
 	output.value = '';
-	text.forEach(function (line) {
+	text.forEach(function (line, index) {
 		var outputWords = '';
 		var proS = line.match(/%s/g);
 		if (proS && proS.length > 1) {
@@ -68,7 +68,7 @@ convert.addEventListener('click', function() {
 				var char = charMap[unicode.checked ? 1 : 0][tmp];
 				if (!char) {
 					errSection.style.display = 'inline-block';
-					errOutput.value += '# Unknown char "' + tmp + '"\n';
+					errOutput.value += 'Line ' + (index + 1) + ': Unknown char "' + tmp + '"\n';
 				}
 				outputWords = (char || tmp) + outputWords;
 			}
