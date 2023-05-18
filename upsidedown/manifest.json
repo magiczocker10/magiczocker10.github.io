@@ -1,7 +1,7 @@
 {
 	"name": "Upside down converter",
 	"short_name": "UDC",
-	"start_url": "index.html",
+	"start_url": "https://magiczocker10.github.io/upsidedown/",
 	"display": "standalone",
 	"background_color": "#36454f",
 	"theme_color": "#36454f",
