@@ -1,12 +1,8 @@
 {
-	"name": "Upside down converter",
-	"short_name": "UDC",
-	"start_url": "https://magiczocker10.github.io/upsidedown/",
-	"display": "standalone",
 	"background_color": "#36454f",
-	"theme_color": "#36454f",
-	"scope": ".",
-	"description": "Generates en_ud language from en_us file.",
+	"description": "Generates en_ud language from en_us file."
+	"dir": "ltr",
+	"display": "standalone",
 	"icons": [
 		{
 			"src": "icons/android-chrome-192x192.png",
@@ -29,5 +25,12 @@
 			"type": "image/png",
 			"purpose": "maskable"
 		}
-	]
+	],
+	"lang": "en-us",
+	"name": "Upside down converter",
+	"orientation": "any",
+	"scope": "/upsidedown/",
+	"short_name": "UDC",
+	"start_url": "/upsidedown/",
+	"theme_color": "#36454f",
 }
