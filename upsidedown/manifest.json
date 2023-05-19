@@ -2,7 +2,7 @@
 	"background_color": "#36454f",
 	"description": "Generates en_ud language from en_us file.",
 	"dir": "ltr",
-	"display": "standalone",
+	"display": "minimal-ui",
 	"icons": [
 		{
 			"src": "icons/android-chrome-192x192.png",
