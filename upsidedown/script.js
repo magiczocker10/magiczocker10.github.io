@@ -62,6 +62,7 @@ convert.addEventListener('click', function() {
 		}
 		var words = isJson ? line.match(/(^.+:\s*")(.+)(",|")/) : line.match(/(.+)=(.+)/);
 		if (words) {
+			words[2] = words[2].replace(/\\"/g, '"');
 			var split = words[2].split('');
 			for (var i = 0; i<split.length; i++) {
 				var tmp = split[i];
