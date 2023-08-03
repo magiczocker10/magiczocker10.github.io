@@ -60,7 +60,7 @@ convert.addEventListener('click', function() {
 				count++;
 			}
 		}
-		var words = isJson ? line.match(/(^.+: ")(.+)(",|")/) : line.match(/(.+)=(.+)/);
+		var words = isJson ? line.match(/(^.+:\s*")(.+)(",|")/) : line.match(/(.+)=(.+)/);
 		if (words) {
 			var split = words[2].split('');
 			for (var i = 0; i<split.length; i++) {
