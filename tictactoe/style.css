@@ -1,6 +1,5 @@
 html {
-	--background: #36454f;
-	background-color: var(--background);
+	background-color: #36454f;
 }
 body {
 	position: absolute;
@@ -9,25 +8,21 @@ body {
 	transform: translateX(-50%) translateY(-50%);
 }
 #field {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr;
-	grid-gap: 2%;
-	justify-items: stretch;
-	align-items: stretch;
-	background-color: #5f7a8c;
-	height: min(350px, 70vh);
-	width: min(350px, 70vh);
+    display: flex;
+    gap: 2%;
+    background-color: #5f7a8c;
+    height: min(350px,70vh);
+    width: min(350px,70vh);
+    flex-wrap: wrap;
 }
-
 .cell {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: var(--background);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #36454f;
+    flex: 30%;
 }
-
 .cell::before,
 .cell::after {
 	content: '';
@@ -54,7 +49,7 @@ body {
 .cell[data-type="o"]::after {
 	width: 60%;
 	height: 60%;
-	background-color: var(--background);
+	background-color: #36454f;
 	border-radius: 50%;
 }
 button {
