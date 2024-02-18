@@ -1,5 +1,3 @@
-/*# 36454f*/
-
 html {
     background-color: #36454f;
 }
@@ -16,7 +14,7 @@ tbody {
     height:100%;
 }
 td {
-    border: .5rem solid #5f7a8c;
+    border: 8px solid #5f7a8c;
 }
 tr:nth-child(1) td {
     border-top-color: transparent;    
@@ -59,7 +57,9 @@ td[data-type="o"]::before {
 	width: 80%;
 	height: 80%;
 	background-color: #FAF0E6;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+	        border-radius: 50%;
 	left: 10%;
 	top: 10%;
 }
@@ -67,17 +67,27 @@ td[data-type="o"]::after {
 	width: 60%;
 	height: 60%;
 	background-color: #36454f;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+	        border-radius: 50%;
 	left: 20%;
 	top: 20%;
 }
 
 button {
-    align-items: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     background-color: #fb8b24;
     border: 1px solid #fb8b24;
-    border-radius: 3px;
-    box-sizing: content-box;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-sizing: content-box;
+       -moz-box-sizing: content-box;
+            box-sizing: content-box;
     color: #000;
     cursor: pointer;
     display: block;

@@ -18,7 +18,7 @@ document.getElementById('field').addEventListener('click', function(e) {
 			won = true;
 		}
 		if (won) alert((player ? 'o' : 'x') + ' won');
-		if (!won) player = !player;
+		player = !player;
 	}
 });
 
