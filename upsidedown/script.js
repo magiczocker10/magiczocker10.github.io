@@ -98,8 +98,8 @@ reset.addEventListener('click', function() {
 });
 
 if ('serviceWorker' in navigator) {
-	navigator.serviceWorker.register('./service-worker.js', {
-		'start_url': './upsidedown/',
+	navigator.serviceWorker.register('/service-worker.js', {
+		'start_url': '/upsidedown/',
 		'scope': '.',
 	});
 }
