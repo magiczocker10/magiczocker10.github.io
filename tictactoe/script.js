@@ -32,5 +32,8 @@ document.getElementById('button').addEventListener('click', function() {
 })
 
 if ('serviceWorker' in navigator) {
-	navigator.serviceWorker.register('/service-worker.js', { scope: "./" });
+	// Use the window load event to keep the page load performant
+	window.addEventListener('load', function() {
+		navigator.serviceWorker.register('service-worker.js', { scope: "./" });
+	});
 }
