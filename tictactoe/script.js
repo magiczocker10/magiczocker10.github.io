@@ -32,8 +32,5 @@ document.getElementById('button').addEventListener('click', function() {
 })
 
 if ('serviceWorker' in navigator) {
-	navigator.serviceWorker.register('/service-worker.js', {
-		'start_url': '/tictactoe/',
-		'scope': '.',
-	});
+	navigator.serviceWorker.register('/service-worker.js?path=tictactoe');
 }
