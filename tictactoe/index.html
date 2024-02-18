@@ -1,20 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<script src="script.js" defer></script>
+		<!-- Responsive -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<!-- Title -->
+		<title>Tic-Tac-Toe</title>
+ 
+		<!-- Icons -->
+		<link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#36454f">
+		<meta name="msapplication-TileColor" content="#36454f">
+		<meta name="theme-color" content="#36454f">
+
+		<!-- Manifest File link -->
+		<link rel="manifest" href="manifest.json">
+
+		<!-- Information -->
+		<meta name="author" content="magiczocker">
+		<meta name="description" content="Tic-Tac-Toe game.">
+
+		<!-- CSS and JS -->
 		<link rel="stylesheet" href="styles.css" />
+		<script src="script.js" defer></script>
 	</head>
 	<body>
-		<div id="field">
-			<div class="cell" data-type="1"></div>
-			<div class="cell" data-type="2"></div>
-			<div class="cell" data-type="3"></div>
-			<div class="cell" data-type="4"></div>
-			<div class="cell" data-type="5"></div>
-			<div class="cell" data-type="6"></div>
-			<div class="cell" data-type="7"></div>
-			<div class="cell" data-type="8"></div>
-			<div class="cell" data-type="9"></div>
-		</div>
-		<button id="button">Reset</button>
+		<main>
+			<div id="field">
+				<div class="cell" data-type="1"></div>
+				<div class="cell" data-type="2"></div>
+				<div class="cell" data-type="3"></div>
+				<div class="cell" data-type="4"></div>
+				<div class="cell" data-type="5"></div>
+				<div class="cell" data-type="6"></div>
+				<div class="cell" data-type="7"></div>
+				<div class="cell" data-type="8"></div>
+				<div class="cell" data-type="9"></div>
+			</div>
+			<button id="button">Reset</button>
+		</main>
 	</body>
 </html>
