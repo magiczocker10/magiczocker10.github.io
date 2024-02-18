@@ -1,0 +1,13 @@
+{
+	"background_color": "#36454f",
+	"description": "Tic-Tac-Toe game.",
+	"dir": "ltr",
+	"display": "minimal-ui",
+	"lang": "en-us",
+	"name": "Tic-Tac-Toe",
+	"orientation": "any",
+	"scope": "/tictactoe/",
+	"short_name": "TTT",
+	"start_url": "/tictactoe/",
+	"theme_color": "#36454f"
+}
