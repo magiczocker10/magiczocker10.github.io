@@ -29,7 +29,7 @@ var PRECACHE_URLS = [
 self.addEventListener('install', event => {
 	event.waitUntil(
 		caches.open(PRECACHE)
-		.then(cache => cache.addAll(document.location.href + PRECACHE_URLS))
+		.then(cache => cache.addAll(window.document.location.href + PRECACHE_URLS))
 		.then(self.skipWaiting())
 	);
 });
