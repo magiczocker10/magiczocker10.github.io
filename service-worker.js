@@ -19,17 +19,17 @@ var RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.
 var PRECACHE_URLS = [
-	'index.html',
-	'./', // Alias for index.html
-	'style.css',
-	'script.js'
+	self.location.pathname + 'index.html',
+	self.location.pathname, // Alias for index.html
+	self.location.pathname + 'style.css',
+	self.location.pathname + 'script.js'
 ];
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
 	event.waitUntil(
 		caches.open(PRECACHE)
-		.then(cache => cache.addAll(self.location.pathname + PRECACHE_URLS))
+		.then(cache => cache.addAll(PRECACHE_URLS))
 		.then(self.skipWaiting())
 	);
 });
