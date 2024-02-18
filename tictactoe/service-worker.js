@@ -19,10 +19,10 @@ var RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.
 var PRECACHE_URLS = [
-	self.location.pathname + 'index.html',
-	self.location.pathname, // Alias for index.html
-	self.location.pathname + 'style.css',
-	self.location.pathname + 'script.js'
+	'index.html',
+	'./', // Alias for index.html
+	'style.css',
+	'script.js'
 ];
 
 // The install handler takes care of precaching the resources we always need.
