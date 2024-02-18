@@ -30,3 +30,7 @@ document.getElementById('button').addEventListener('click', function() {
 	won = false;
 	if (won) player = !player;
 })
+
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('service-worker.js');
+}
