@@ -1,6 +1,6 @@
 "use strict";
-let player = false;
-let won = false;
+var player = false;
+var won = false;
 
 document.getElementById("field").addEventListener("click", function(e) {
     if (!won && Number(e.srcElement.dataset.type)) {
@@ -30,6 +30,5 @@ document.getElementById("button").addEventListener("click", function() {
 			rows[i].cells[j].dataset.type = 3 * i + j + 1;
 		}
 	}
-	if (won) player = !player;
 	won = false;
 });

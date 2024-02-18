@@ -1,6 +1,6 @@
 'use strict';
-let player = true;
-let won = false;
+var player = true;
+var won = false;
 document.getElementById('field').addEventListener('click', function(e) {
 	if (!won && e.srcElement.classList.contains('cell') && Number(e.srcElement.dataset.type)) {
 		e.srcElement.dataset.type = player ? 'o' : 'x';
@@ -28,7 +28,6 @@ document.getElementById('button').addEventListener('click', function() {
 		cells[v].dataset.type = v + 1;
 	}
 	won = false;
-	if (won) player = !player;
 })
 
 if ('serviceWorker' in navigator) {
