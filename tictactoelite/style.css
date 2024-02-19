@@ -1,32 +1,32 @@
 html {
-    background-color: #36454f;
+	background-color: #36454f;
 }
 
 table {
-    background-color: #36454f;
-    border-collapse: collapse;
-    height: 350px;
-    width: 350px;
+	background-color: #36454f;
+	border-collapse: collapse;
+	height: 350px;
+	width: 350px;
 	margin: auto;
 }
 tbody {
-    width:100%;
-    height:100%;
+	width:100%;
+	height:100%;
 }
 td {
-    border: 8px solid #5f7a8c;
+	border: 8px solid #5f7a8c;
 }
 tr:nth-child(1) td {
-    border-top-color: transparent;    
+	border-top-color: transparent;
 }
 tr:nth-child(3) td {
-    border-bottom-color: transparent;    
+	border-bottom-color: transparent;
 }
 td:nth-child(1) {
-    border-left-color: transparent;    
+	border-left-color: transparent;
 }
 td:nth-child(3) {
-    border-right-color: transparent;    
+	border-right-color: transparent;
 }
 
 td {
@@ -41,46 +41,60 @@ td[data-type="o"]::after {
 }
 td[data-type="x"]::before,
 td[data-type="x"]::after {
-	width: 10%;
-	height: 100%;
+	width: 10px;
+	height: 100px;
 	background-color: #FAF0E6;
 	left: 45%;
 	top: 0%;
 }
 td[data-type="x"]::before {
-	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	     -o-transform: rotate(45deg);
+	        transform: rotate(45deg);
 }
 td[data-type="x"]::after {
-	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+	   -moz-transform: rotate(135deg);
+	    -ms-transform: rotate(135deg);
+	     -o-transform: rotate(135deg);
+	        transform: rotate(135deg);
 }
 td[data-type="o"]::before {
-	width: 80%;
-	height: 80%;
+	width: 85px;
+	height: 85px;
 	background-color: #FAF0E6;
-    border-radius: 50%;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+	        border-radius: 50%;
 	left: 10%;
 	top: 10%;
 }
 td[data-type="o"]::after {
-	width: 60%;
-	height: 60%;
+	width: 64px;
+	height: 64px;
 	background-color: #36454f;
-    border-radius: 50%;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+	        border-radius: 50%;
 	left: 20%;
 	top: 20%;
 }
 
 button {
-    background-color: #fb8b24;
-    border: 1px solid #fb8b24;
-    border-radius: 3px;
-    color: #000;
-    cursor: pointer;
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .15px;
-    margin: 1rem auto;
-    padding: 9px 18px;
-    text-transform: uppercase;
+	background-color: #fb8b24;
+	border: 1px solid #fb8b24;
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;
+	color: #000;
+	cursor: pointer;
+	display: block;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .15px;
+	margin: 1rem auto;
+	padding: 9px 18px;
+	text-transform: uppercase;
 }
