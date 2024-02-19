@@ -6,7 +6,7 @@ document.getElementById("field").addEventListener("click", function(e) {
     if (!won && Number(e.srcElement.dataset.type)) {
         e.srcElement.dataset.type = player ? "o" : "x";
 		var rows = document.getElementById('field').rows;
-        for (let i = 0; i < 3; i++) {
+        for (var i = 0; i < 3; i++) {
 			if (rows[i].cells[0].dataset.type === rows[i].cells[1].dataset.type && rows[i].cells[0].dataset.type === rows[i].cells[2].dataset.type) { // Horizontal
 				won = true;
 			} else if (rows[0].cells[i].dataset.type === rows[1].cells[i].dataset.type && rows[0].cells[i].dataset.type === rows[2].cells[i].dataset.type) { // Vertikal

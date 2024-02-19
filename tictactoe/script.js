@@ -5,7 +5,7 @@ document.getElementById('field').addEventListener('click', function(e) {
 	if (!won && e.srcElement.classList.contains('cell') && Number(e.srcElement.dataset.type)) {
 		e.srcElement.dataset.type = player ? 'o' : 'x';
 		var cells = document.getElementsByClassName('cell');
-		for (let i = 0; i < 3; i++) {
+		for (var i = 0; i < 3; i++) {
 			if (cells[3 * i].dataset.type === cells[3 * i + 1].dataset.type && cells[3 * i].dataset.type === cells[3 * i + 2].dataset.type) { // Horizontal
 				won = true;
 			} else if (cells[0 + i].dataset.type === cells[3 + i].dataset.type && cells[0 + i].dataset.type === cells[6 + i].dataset.type) { // Vertikal
@@ -24,7 +24,7 @@ document.getElementById('field').addEventListener('click', function(e) {
 
 document.getElementById('button').addEventListener('click', function() {
 	var cells = document.getElementsByClassName('cell');
-	for (let v = 0; v < 9; v++) {
+	for (var v = 0; v < 9; v++) {
 		cells[v].dataset.type = v + 1;
 	}
 	won = false;
