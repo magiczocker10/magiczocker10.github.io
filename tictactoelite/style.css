@@ -37,29 +37,30 @@ td[data-type="x"]::after,
 td[data-type="o"]::before,
 td[data-type="o"]::after {
 	content: '';
-	position: absolute;	
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 td[data-type="x"]::before,
 td[data-type="x"]::after {
 	width: 10px;
 	height: 100px;
 	background-color: #FAF0E6;
-	left: 45%;
-	top: 0%;
 }
 td[data-type="x"]::before {
-	-webkit-transform: rotate(45deg);
-	   -moz-transform: rotate(45deg);
-	    -ms-transform: rotate(45deg);
-	     -o-transform: rotate(45deg);
-	        transform: rotate(45deg);
+	-webkit-transform: translate(-50%, -50%) rotate(45deg);
+	   -moz-transform: translate(-50%, -50%) rotate(45deg);
+	    -ms-transform: translate(-50%, -50%) rotate(45deg);
+	     -o-transform: translate(-50%, -50%) rotate(45deg);
+	        transform: translate(-50%, -50%) rotate(45deg);
 }
 td[data-type="x"]::after {
-	-webkit-transform: rotate(135deg);
-	   -moz-transform: rotate(135deg);
-	    -ms-transform: rotate(135deg);
-	     -o-transform: rotate(135deg);
-	        transform: rotate(135deg);
+	-webkit-transform: translate(-50%, -50%) rotate(135deg);
+	   -moz-transform: translate(-50%, -50%) rotate(135deg);
+	    -ms-transform: translate(-50%, -50%) rotate(135deg);
+	     -o-transform: translate(-50%, -50%) rotate(135deg);
+	        transform: translate(-50%, -50%) rotate(135deg);
 }
 td[data-type="o"]::before {
 	width: 85px;
@@ -68,8 +69,6 @@ td[data-type="o"]::before {
 	-webkit-border-radius: 50%;
 	   -moz-border-radius: 50%;
 	        border-radius: 50%;
-	left: 10%;
-	top: 10%;
 }
 td[data-type="o"]::after {
 	width: 64px;
@@ -78,8 +77,6 @@ td[data-type="o"]::after {
 	-webkit-border-radius: 50%;
 	   -moz-border-radius: 50%;
 	        border-radius: 50%;
-	left: 20%;
-	top: 20%;
 }
 
 button {
