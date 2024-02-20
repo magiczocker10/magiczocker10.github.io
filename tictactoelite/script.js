@@ -1,4 +1,3 @@
-'use strict';
 var player = false;
 var won = false;
 
