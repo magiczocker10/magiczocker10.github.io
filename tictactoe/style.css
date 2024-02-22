@@ -1,68 +1,90 @@
 html {
 	background-color: #36454f;
 }
-body {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translateX(-50%) translateY(-50%);
-}
 #field {
-    display: flex;
-    gap: 2%;
-    background-color: #5f7a8c;
-    height: min(350px,70vh);
-    width: min(350px,70vh);
-    flex-wrap: wrap;
+	width: min(350px,70vh);
+	height: min(350px,70vh);
+	margin: 0 auto;
+	position: relative;
+}
+#field::before {
+	content: '';
+	position: absolute;
+	z-index: 0;
+	width: 96%;
+	height: 96%;
+	margin: 2%;
+	background-color: #5f7a8c;
 }
 .cell {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #36454f;
-    flex: 30%;
+	background-color: #36454f;
+	width: 30%;
+	padding-bottom: 30%;
+	float: left;
+	margin: 1.66%;
+	position: relative;
 }
 .cell::before,
 .cell::after {
 	content: '';
-	position:absolute;	
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	   -moz-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	     -o-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
 }
-.cell[data-type="x"]::before,
-.cell[data-type="x"]::after {
+.cell[data-type="1"]::before,
+.cell[data-type="1"]::after {
 	width: 10%;
 	height: 100%;
 	background-color: #FAF0E6;	
 }
-.cell[data-type="x"]::before {
-	transform: rotate(45deg);
+.cell[data-type="1"]::before {
+	-webkit-transform: translate(-50%, -50%) rotate(45deg);
+	   -moz-transform: translate(-50%, -50%) rotate(45deg);
+	    -ms-transform: translate(-50%, -50%) rotate(45deg);
+	     -o-transform: translate(-50%, -50%) rotate(45deg);
+	        transform: translate(-50%, -50%) rotate(45deg);
 }
-.cell[data-type="x"]::after {
-	transform: rotate(135deg);
+.cell[data-type="1"]::after {
+	-webkit-transform: translate(-50%, -50%) rotate(135deg);
+	   -moz-transform: translate(-50%, -50%) rotate(135deg);
+	    -ms-transform: translate(-50%, -50%) rotate(135deg);
+	     -o-transform: translate(-50%, -50%) rotate(135deg);
+	        transform: translate(-50%, -50%) rotate(135deg);
 }
-.cell[data-type="o"]::before {
+.cell[data-type="2"]::before {
 	width: 80%;
 	height: 80%;
 	background-color: #FAF0E6;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+	        border-radius: 50%;
 }
-.cell[data-type="o"]::after {
+.cell[data-type="2"]::after {
 	width: 60%;
 	height: 60%;
 	background-color: #36454f;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+	        border-radius: 50%;
 }
 button {
-    background-color: #fb8b24;
-    border: 1px solid #fb8b24;
-    border-radius: 3px;
-    color: #000;
-    cursor: pointer;
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .15px;
-    margin: 1rem auto;
-    padding: 9px 18px;
-    text-transform: uppercase;
+	background-color: #fb8b24;
+	border: 1px solid #fb8b24;
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;
+	color: #000;
+	cursor: pointer;
+	display: block;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .15px;
+	margin: 1rem auto;
+	padding: 9px 18px;
+	text-transform: uppercase;
 }

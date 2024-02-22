@@ -1,34 +1,59 @@
-'use strict';
-var player = true;
+var player = false;
 var won = false;
+var cells = document.getElementsByClassName('cell');
+
+function getType(id) {
+	return cells[id].getAttribute('data-type');
+}
+
+function checkWin() {
+	for (var i = 0; i < 3; i++) {
+		// horizontal
+		if ((getType(3 * i) === getType(3 * i + 1)) &&
+			(getType(3 * i) === getType(3 * i + 2)) &&
+			(getType(3 * i) !== '0')) {
+			won = true;
+		} else
+
+		// vertical
+		if ((getType(0 + i) === getType(3 + i)) &&
+			(getType(0 + i) === getType(6 + i)) &&
+			(getType(0 + i) !== '0')) {
+			won = true;
+		}
+	}
+
+	// diagonal \
+	if ((getType(0) === getType(4)) &&
+		(getType(0) === getType(8)) &&
+		(getType(0) !== '0')) {
+		won = true;
+	} else
+
+	// diagonal /
+	if ((getType(2) === getType(4)) &&
+		(getType(2) === getType(6)) &&
+		(getType(2) !== '0')) {
+		won = true;
+	}
+}
+
 document.getElementById('field').addEventListener('click', function(e) {
-	if (!won && e.srcElement.classList.contains('cell') && Number(e.srcElement.dataset.type)) {
-		e.srcElement.dataset.type = player ? 'o' : 'x';
-		var cells = document.getElementsByClassName('cell');
-		for (var i = 0; i < 3; i++) {
-			if (cells[3 * i].dataset.type === cells[3 * i + 1].dataset.type && cells[3 * i].dataset.type === cells[3 * i + 2].dataset.type) { // Horizontal
-				won = true;
-			} else if (cells[0 + i].dataset.type === cells[3 + i].dataset.type && cells[0 + i].dataset.type === cells[6 + i].dataset.type) { // Vertikal
-				won = true;
-			}
-		}
-		if (cells[0].dataset.type === cells[4].dataset.type && cells[0].dataset.type === cells[8].dataset.type) { // Diagonal \
-			won = true;
-		} else if (cells[2].dataset.type === cells[4].dataset.type && cells[2].dataset.type === cells[6].dataset.type) { // Diagonal /
-			won = true;
-		}
+	var type = e.target.getAttribute('data-type');
+	if (!won && type === '0') {
+		e.target.setAttribute('data-type', (player ? 2 : 1));
+		checkWin();
 		if (won) alert((player ? 'o' : 'x') + ' won');
 		player = !player;
 	}
-});
+}, false);
 
 document.getElementById('button').addEventListener('click', function() {
-	var cells = document.getElementsByClassName('cell');
-	for (var v = 0; v < 9; v++) {
-		cells[v].dataset.type = v + 1;
+	for (var i = 0; i < cells.length; i++) {
+		cells[i].setAttribute('data-type', 0);
 	}
 	won = false;
-})
+}, false);
 
 if ('serviceWorker' in navigator) {
 	navigator.serviceWorker.register('/service-worker.js?path=tictactoe');

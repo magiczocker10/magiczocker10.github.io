@@ -15,7 +15,7 @@ function checkWin() {
 			won = true;
 		} else
 
-		// vertikal
+		// vertical
 		if ((getType(i, 0) === getType(i, 1)) &&
 			(getType(i, 0) === getType(i, 2)) &&
 		   	(getType(i, 0) !== '0')) {
@@ -38,6 +38,7 @@ function checkWin() {
 	}
 	
 }
+
 document.getElementById('field').addEventListener('click', function(e) {
 	var type = e.target.getAttribute('data-type');
     if (!won && type === '0') {
@@ -47,6 +48,7 @@ document.getElementById('field').addEventListener('click', function(e) {
 		player = !player;
     }
 }, false);
+
 document.getElementById('button').addEventListener('click', function() {
 	var cells = document.getElementsByTagName('td');
 	for (var i=0; i<cells.length; i++) {

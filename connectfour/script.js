@@ -51,6 +51,7 @@ function checkWin() {
 		}
 	}
 }
+
 document.getElementById('field').addEventListener('click', function(e) {
 	if (!won && e.target.tagName === 'TH') {
 		var column = e.target.cellIndex;
@@ -65,6 +66,7 @@ document.getElementById('field').addEventListener('click', function(e) {
 		}
 	}
 }, false);
+
 document.getElementById('button').addEventListener('click', function() {
 	var cells = document.getElementsByTagName('td');
 	for (var i=0; i<cells.length; i++) {
