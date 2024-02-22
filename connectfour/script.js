@@ -1,6 +1,6 @@
 var player = false;
 var won = false;
-var field = document.getElementById('field').rows;
+var field = document.getElementById('field').tBodies[0].rows;
 
 function getType(x, y) {
 	return field[y].cells[x].getAttribute('data-type');
@@ -39,7 +39,7 @@ function checkWin() {
 				(getType(column, row + 3) === getType(column + 3, row)) &&
 				(getType(column, row + 3) !== '0')) {
 				won = true;
-			}
+			} else
 
 			// diagonal /
 			if ((getType(column, row) === getType(column + 1, row + 1)) &&
@@ -52,12 +52,17 @@ function checkWin() {
 	}
 }
 document.getElementById('field').addEventListener('click', function(e) {
-	var type = e.target.getAttribute('data-type');
-	if (!won && type === '0') {
-		e.target.setAttribute('data-type', (player ? 2 : 1));
-		checkWin();
-		if (won) alert((player ? 'black' : 'white') + ' won');
-		player = !player;
+	if (!won && e.target.tagName === 'TH') {
+		var column = e.target.cellIndex;
+		for (var row = 5; row >= 0; row--) {
+			if (getType(column, row) === '0') {
+				field[row].cells[e.target.cellIndex].setAttribute('data-type', (player ? 2 : 1));
+				checkWin();
+				if (won) alert((player ? 'black' : 'white') + ' won');
+				player = !player;
+				break;
+			}
+		}
 	}
 }, false);
 document.getElementById('button').addEventListener('click', function() {

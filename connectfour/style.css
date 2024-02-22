@@ -10,6 +10,10 @@ table {
 	border-collapse: collapse;
 	float: left;
 }
+th {
+	color: #FAF0E6;
+	cursor: pointer;
+}
 td {
 	border: 2px solid #5f7a8c;
 	width: 25px;
