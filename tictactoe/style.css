@@ -15,6 +15,8 @@ html {
 	height: 96%;
 	margin: 2%;
 	background-color: #5f7a8c;
+	top: 0;
+	left: 0;
 }
 .cell {
 	background-color: #36454f;
