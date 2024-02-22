@@ -29,29 +29,29 @@ td:nth-child(1) {
 td:nth-child(3) {
 	border-right-color: transparent;
 }
-td[data-type="x"]::before,
-td[data-type="x"]::after {
+td[data-type="1"]::before,
+td[data-type="1"]::after {
 	content: '';
 	position: absolute;
 	width: 4px;
 	height: 40px;
 	background-color: #FAF0E6;
 }
-td[data-type="x"]::before {
+td[data-type="1"]::before {
 	-webkit-transform: translate(20px, -20px) rotate(45deg);
 	   -moz-transform: translate(20px, -20px) rotate(45deg);
 	    -ms-transform: translate(20px, -20px) rotate(45deg);
 	     -o-transform: translate(20px, -20px) rotate(45deg);
 	        transform: translate(20px, -20px) rotate(45deg);
 }
-td[data-type="x"]::after {
+td[data-type="1"]::after {
 	-webkit-transform: translate(20px, -20px) rotate(135deg);
 	   -moz-transform: translate(20px, -20px) rotate(135deg);
 	    -ms-transform: translate(20px, -20px) rotate(135deg);
 	     -o-transform: translate(20px, -20px) rotate(135deg);
 	        transform: translate(20px, -20px) rotate(135deg);
 }
-td[data-type="o"]::before {
+td[data-type="2"]::before {
 	width: 26px;
 	height: 26px;
 	border: 4px solid #FAF0E6;
