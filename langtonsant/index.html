@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Langton's Ant</title>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="author" content="magiczocker">
+		<meta name="description" content="Langton's Ant">
+
+		<script src="script.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div id="controls">
+			<span id="counter"></span>
+			<label for="startdir">Starting direction</label>
+			<select id="startdir">
+				<option data-value="0" selected>^ Up</option>
+				<option data-value="1">&gt; Right</option>
+				<option data-value="2">v Down</option>
+				<option data-value="3">&lt; Left</option>
+			</select>
+			<label for="refreshinterval">Refresh interval</label>
+			<input id="refreshinterval" type="number">
+			<label for="stepsperinterval">Steps per interval</label>
+			<input id="stepsperinterval" type="number">
+			<label for="widthinput">Width</label>
+			<input id="widthinput" type="number">
+			<label for="heightinput">Height</label>
+			<input id="heightinput" type="number">
+			<button id="resetbtn">Reset</button>
+		</div>
+		<div id="boardwrapper">
+			<table id="board"></table>
+		</div>
+	</body>
+</html>
