@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+	<head>
+		<title>Peg Solitaire</title>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="author" content="magiczocker">
+		<meta name="description" content="Peg solitaire game.">
+
+		<script src="script.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div id="controls">
+			<label for="boardselector">Select board</label>
+			<select id="boardselector">
+				<option data-value="0" selected>French</option>
+				<option data-value="1">J. C. Wiegleb</option>
+				<option data-value="2">Asymmetrical 3-3-2-2</option>
+				<option data-value="3">English style (standard)</option>
+				<option data-value="4">Diamond</option>
+			</select>
+			<button id="resetbtn">Reset</button>
+			<a id="winnotifier"></a>
+		</div>
+		<table id="board"></table>
+	</body>
+</html>
