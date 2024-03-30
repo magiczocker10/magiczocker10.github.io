@@ -1,6 +1,7 @@
 /*
 	Sizes 4x4, 6x6, 9x9
 */
+
 window.addEventListener('load', function() {
 	'use strict';
 	var t = document.getElementById('board'),
@@ -16,7 +17,7 @@ window.addEventListener('load', function() {
 			for (var i=0; i<r.length; i++) {
 				c += Number(r[i].children[n].textContent);
 			}
-			
+
 		} else {
 			var r = t.rows[n].children;
 			for (var i=0; i<r.length; i++) {
@@ -89,12 +90,12 @@ window.addEventListener('load', function() {
 			var x = Math.floor(Math.random() * size);
 			var y = Math.floor(Math.random() * size);
 			r[y].cells[x].innerText = '';
-			r[y].cells[x].classList.add('input');
+			addClass(r[y].cells[x], 'input');
 		}
 	}
 	function reset() {
-		wn.innerText = '';
-		size = Number(document.getElementById('sizeselector').selectedOptions[0].dataset.size);
+		wn.textContent = '';
+		size = Number(getSelection(document.getElementById('sizeselector')).getAttribute('data-size'));
 		t.setAttribute('data-size', size);
 		var i = document.getElementById('input');
 		i.textContent='';
@@ -112,15 +113,15 @@ window.addEventListener('load', function() {
 		randomizeField(switchCol, sizes[size][0], sizes[size][1]);
 		randomizeField(switchRow, sizes[size][1], sizes[size][0]);
 		generateTable(size);
-		replaceRandomEntries(Number(document.getElementById('diffselector').selectedOptions[0].dataset.emptycells.split(",")[document.getElementById("sizeselector").selectedIndex]));
+		replaceRandomEntries(Number(getSelection(document.getElementById('diffselector')).getAttribute('data-emptycells').split(",")[document.getElementById("sizeselector").selectedIndex]));
 	}
 	document.getElementById('resetbtn').addEventListener('click', reset);
 	document.getElementById('board').addEventListener('click', function(e) {
-		if (e.target.nodeName !== 'TD' || !e.target.classList.contains('input')) return;
+		if (e.target.nodeName !== 'TD' || !hasClass(e.target, 'input')) return;
 
-		if (last) last.classList.remove('selected');
+		if (last) removeClass(last, 'selected');
 		last = e.target;
-		last.classList.add('selected');
+		addClass(last, 'selected');
 	});
 	document.getElementById('input').addEventListener('click', function(e) {
 		if (!last || e.target.nodeName !== 'TD') return;
