@@ -1,15 +1,16 @@
 // jshint jquery:false, browser:true, devel:true, camelcase:true, curly:false, eqeqeq:true, esversion: 5, forin:true, freeze:true, immed:true, latedef:true, leanswitch:true, newcap:true, noarg:true, regexp:true, strict:true, trailing:false, undef:true, unused:true
 window.addEventListener('load', function() {
-	"use strict";
+	'use strict';
     var click;
-	var wn = document.querySelector('#winnotifier');
-	var t = document.querySelector('#board');
+	var wn = document.getElementById('winnotifier');
+	var t = document.getElementById('board');
 	function checkWin() {
-		if (t.rows[0].cells[0].dataset.content !== ' ') {return false;}
+		if (t.rows[0].cells[0].getAttribute('data-content') !== ' ') {return false;}
 		var a = '';
-		t.querySelectorAll('td').forEach(function(e) {
-			a += e.dataset.content;
-		});
+		var b = t.querySelectorAll('td');
+		for (var i = 0; i < b.length; b++) {
+			a += b[i].getAttribute('data-content');
+		}
 		return a === ' abcdefghijklmno';
 	}
 	function getRandomizedField() {
@@ -27,7 +28,7 @@ window.addEventListener('load', function() {
 			s_.substring(4, 8).split(''),
 			s_.substring(8, 12).split(''),
 			s_.substring(12, 16).split('')
-		]
+		];
 	}
 	function replaceEntries(o, n) { // Original, New
 		for (var i = 0; i < o.length; i++) {
@@ -41,7 +42,7 @@ window.addEventListener('load', function() {
 		replaceEntries(a, b.slice(0, to).concat(a[from]).concat(b.slice(to)));
 	}
     click = function(e) {
-		if (wn.innerText.length) {return;}
+		if (wn.textContent.length) {return;}
 		var emptyCell = document.querySelector('td[data-content=" "]');
 		if (emptyCell.cellIndex === e.target.cellIndex) {
 			moveEntry(Array.from(document.querySelectorAll('td:nth-child(' + (emptyCell.cellIndex + 1) + ')')), emptyCell.parentElement.rowIndex, e.target.parentElement.rowIndex);
@@ -49,22 +50,22 @@ window.addEventListener('load', function() {
 			moveEntry(Array.from(emptyCell.parentElement.children), emptyCell.cellIndex, e.target.cellIndex);
 		}
 		if (checkWin()) {
-			winnotifier.innerText = 'You won!';
+			wn.textContent = 'You won!';
 		}
 	};
 	function reset() {
-		t.innerText='';
-		winnotifier.innerText = '';
+		t.textContent = '';
+		wn.textContent = '';
 		getRandomizedField().forEach(function(a) {
 			var r = t.insertRow();
 			a.forEach(function(b) {
 				var c = r.insertCell();
 				c.onclick = click;
-				c.dataset.content = b;
-				c.innerText = b;
+				c.setAttribute('data-content', b);
+				c.textContent = b;
 			});
 		});
 	}
 	reset();
-	document.querySelector('#resetbtn').onclick = reset;
+	document.getElementById('resetbtn').addEventListener('click', reset);
 });

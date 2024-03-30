@@ -1,31 +1,31 @@
-// jshint jquery:false, browser:true, devel:true, camelcase:true, curly:false, eqeqeq:true, esversion: 6, forin:true, freeze:true, immed:true, latedef:true, leanswitch:true, newcap:true, noarg:true, regexp:true, strict:true, trailing:false, undef:true, unused:true
+// jshint jquery:false, browser:true, devel:true, camelcase:true, curly:false, eqeqeq:true, esversion: 5, forin:true, freeze:true, immed:true, latedef:true, leanswitch:true, newcap:true, noarg:true, regexp:true, strict:true, trailing:false, undef:true, unused:true
 window.addEventListener('load', function() {
-	"use strict";
+	'use strict';
 
 	var pattern = [1, -1]; // 1 = right, -1 = left
 	var colors = ['#0f0', '#f00'];
 	var refreshDelay = 1;
 	var antPos = [];
 	var antDir = 0;
-	var refreshIntervalEle = document.querySelector("#refreshinterval");
-	var stepsPerInterval = document.querySelector("#stepsperinterval");
-	var startDirEle = document.querySelector("#startdir");
-	var t = document.querySelector('#board');
-	var resetbtn = document.querySelector("#resetbtn");
+	var refreshIntervalEle = document.getElementById('refreshinterval');
+	var stepsPerInterval = document.getElementById('stepsperinterval');
+	var startDirEle = document.getElementById('startdir');
+	var t = document.getElementById('board');
+	var resetbtn = document.getElementById('resetbtn');
 	var timeout;
 	var stepsPerRefresh = 1;
 	var stepCounter = 0;
-	var counterEle = document.querySelector('#counter');
-	var widthEle = document.querySelector('#widthinput');
-	var heightEle = document.querySelector('#heightinput');
+	var counterEle = document.getElementById('counter');
+	var widthEle = document.getElementById('widthinput');
+	var heightEle = document.getElementById('heightinput');
 
 	function generateTable(w, h) {
-		t.innerText='';
+		t.textContent = '';
 		for (var i = 0; i < h; i++) {
 			var r = t.insertRow();
 			for (var j = 0; j < w; j++) {
 				var c = r.insertCell();
-				c.dataset.state = "0";
+				c.setAttribute('data-state', '0');
 			}
 		}
 		antPos[0] = Math.floor(t.rows[0].cells.length * 0.5);
@@ -35,12 +35,12 @@ window.addEventListener('load', function() {
 	function moveAnt() {
 		if (!t.rows[antPos[1]] || !t.rows[antPos[1]].cells[antPos[0]]) {return;}
 		var c = t.rows[antPos[1]].cells[antPos[0]];
-		c.dataset.state = Number(c.dataset.state) + 1;
-		if (c.dataset.state > pattern.length) {
-			c.dataset.state = "1";
+		c.setAttribute('data-state', Number(c.getAttribute('data-state')) + 1);
+		if (c.getAttribute('data-state') > pattern.length) {
+			c.setAttribute('data-state', '1');
 		}
-		c.style.background = colors[Number(c.dataset.state) - 1];
-		antDir = antDir + pattern[Number(c.dataset.state) - 1];
+		c.style.background = colors[Number(c.getAttribute('data-state')) - 1];
+		antDir = antDir + pattern[Number(c.getAttribute('data-state')) - 1];
 		if (antDir < 0) {
 			antDir += 4;
 		} else if (antDir > 3) {
@@ -62,11 +62,11 @@ window.addEventListener('load', function() {
 			stepCounter++;
 			moveAnt();
 		}
-		counterEle.innerText = "Step: " + stepCounter;
+		counterEle.innerText = 'Step: ' + stepCounter;
 		if (t.rows[antPos[1]] && t.rows[antPos[1]].cells[antPos[0]]) {
 			timeout = setTimeout(moveAnt_, refreshDelay);
 		} else {
-			alert("The field is not big enough for more steps");
+			alert('The field is not big enough for more steps');
 		}
 	}
 
@@ -77,16 +77,16 @@ window.addEventListener('load', function() {
 		stepCounter = 0;
 		refreshDelay = Number(refreshIntervalEle.value);
 		stepsPerRefresh = Number(stepsPerInterval.value);
-		antDir = Number(startDirEle.selectedOptions[0].dataset.value);
-		counterEle.innerText = "Step: 0";
+		antDir = Number(getSelection(startDirEle).getAttribute('data-value'));
+		counterEle.textContent = 'Step: 0';
 		generateTable(Number(widthEle.value), Number(heightEle.value));
 		timeout = setTimeout(moveAnt_, refreshDelay);
 	}
 	refreshIntervalEle.value = 1000;
 	stepsPerInterval.value = 1;
-	widthEle.value = 150;
-	heightEle.value = 150;
+	widthEle.value = 10;
+	heightEle.value = 10;
 
 	reset();
-	resetbtn.onclick = reset;
+	resetbtn.addEventListener('click', reset);
 });

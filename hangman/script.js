@@ -2,12 +2,12 @@
 window.addEventListener('load', function() {
 	"use strict";
 
-	var attempts = document.querySelector('#attempts');
+	var attempts = document.getElementById('attempts');
 	var failed = 0;
 	var gameOver = false;
-	var keyboard = document.querySelector('#keyboard');
+	var keyboard = document.getElementById('keyboard');
 	var maxFailed = 5;
-	var wordDisplay = document.querySelector('#display');
+	var wordDisplay = document.getElementById('display');
 	var words = [
 		'Hangman',
 		'Magiczocker',
@@ -17,51 +17,54 @@ window.addEventListener('load', function() {
 
 	function tryKey(k) {
 		if (!k || gameOver) { return; }
-		var ele = document.querySelector('span[data-key="' + k + '"');
-		if (ele.dataset.hidden) {return;}
-		ele.classList.add("pressed");
+		var ele = document.querySelector('span[data-key="' + k + '"]');
+		if (ele.getAttribute('data-hidden')) {return;}
+		addClass(ele, "pressed");
 		var b = document.querySelectorAll('span[data-letter="' + k.toLowerCase() + '"]');
 		if (b.length) {
-			b.forEach(function(e) {
-				e.innerText = e.dataset.displayletter;
-				delete e.dataset.hidden;
-			});
+			for (var i = 0; i < b.length; i++) {
+				b[i].innerText = b[i].getAttribute('data-displayletter');
+				b[i].removeAttribute('data-hidden');
+			}
 			if (!document.querySelectorAll('span[data-letter][data-hidden]').length) {
-				document.querySelectorAll('span[data-letter]').forEach(function(e) {
-					e.classList.add("success");
-				});
+				var c = document.querySelectorAll('span[data-letter]');
+				for (var l = 0; l < c.length; l++) {
+					addClass(c[l], "success");
+				}
 				gameOver = true;
 			}
 		} else {
 			failed++;
 			attempts.innerText = failed + " / " + maxFailed;
 			if (failed < maxFailed) { return; }
-			document.querySelectorAll('span[data-hidden]').forEach(function(e) {
-				e.innerText = e.dataset.displayletter;
-				delete e.dataset.hidden;
-				e.classList.add("failed");
-			});
+			var s = document.querySelectorAll('span[data-hidden]');
+			for (var j = 0; j < s.length; j++) {
+				s[j].innerText = s[j].getAttribute('data-displayletter');
+				s[j].removeAttribute('data-hidden');
+				addClass(s[j], "failed");
+			}
 			gameOver = true;
 		}
 	}
 
 	function tryKeyClick(e) {
-		tryKey(e.target.dataset.key);
+		tryKey(e.target.getAttribute('data-key'));
 	}
 
 	function reset() {
 		// Word display
-		wordDisplay.innerText='';
-		keyboard.innerText='';
+		wordDisplay.innerText = '';
+		keyboard.innerText = '';
 		failed = 0;
+		gameOver = false;
 		
 		var selectedWord = words[Math.floor(Math.random() * words.length)];
 		for (var j = 0; j < selectedWord.length; j++) {
 			var ele = document.createElement("span");
 			ele.innerText = "_";
-			ele.dataset.displayletter = selectedWord.substring(j, j + 1);
-			ele.dataset.letter = ele.dataset.displayletter.toLowerCase();
-			ele.dataset.hidden = ".";
+			ele.setAttribute('data-displayletter', selectedWord.substring(j, j + 1));
+			ele.setAttribute('data-letter', ele.getAttribute('data-displayletter').toLowerCase());
+			ele.setAttribute('data-hidden', '.');
 			wordDisplay.appendChild(ele);
 		}
 
@@ -69,19 +72,19 @@ window.addEventListener('load', function() {
 		for (var i = 0; i < 26; i++) {
 			var key = document.createElement("span");
 			key.innerText = String.fromCharCode(97 + i).toUpperCase();
-			key.dataset.key=key.innerText;
+			key.setAttribute('data-key', key.innerText);
 			key.addEventListener("click", tryKeyClick);
 			keyboard.appendChild(key);
 		}
-		document.addEventListener("keydown", function(e) {
-			if (e.isComposing || e.key === 229) { return; }
-			var ele = document.querySelector('span[data-key="' + e.key.toUpperCase() + '"]');
-			if (ele) { tryKey(ele.dataset.key); }
-		});
 
 		// Attempts
 		attempts.innerText = "0 / " + maxFailed;
 	}
-	document.querySelector('#resetbtn').onclick = reset;
+	document.addEventListener("keydown", function(e) {
+		if (e.isComposing || e.key === 229) { return; }
+		var ele = document.querySelector('span[data-key="' + e.key.toUpperCase() + '"]');
+		if (ele) { tryKey(ele.getAttribute('data-key')); }
+	});
+	document.getElementById('resetbtn').addEventListener('click', reset);
 	reset();
 });
