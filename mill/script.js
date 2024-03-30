@@ -131,7 +131,7 @@ window.addEventListener('load', function() {
 		}
 	}
 	function generateTable() {
-		t.replaceChildren();
+		t.innerText='';
 		for (var i = 0; i < tData.length; i++) {
 			var r = t.insertRow();
 			for (var j = 0; j < tData[i].length; j++) {

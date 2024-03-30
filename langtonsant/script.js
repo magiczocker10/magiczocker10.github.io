@@ -20,7 +20,7 @@ window.addEventListener('load', function() {
 	var heightEle = document.querySelector('#heightinput');
 
 	function generateTable(w, h) {
-		t.replaceChildren();
+		t.innerText='';
 		for (var i = 0; i < h; i++) {
 			var r = t.insertRow();
 			for (var j = 0; j < w; j++) {

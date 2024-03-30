@@ -51,8 +51,8 @@ window.addEventListener('load', function() {
 
 	function reset() {
 		// Word display
-		wordDisplay.replaceChildren();
-		keyboard.replaceChildren();
+		wordDisplay.innerText='';
+		keyboard.innerText='';
 		failed = 0;
 		
 		var selectedWord = words[Math.floor(Math.random() * words.length)];

@@ -53,7 +53,7 @@ window.addEventListener('load', function() {
 		}
 	};
 	function reset() {
-		t.replaceChildren();
+		t.innerText='';
 		winnotifier.innerText = '';
 		getRandomizedField().forEach(function(a) {
 			var r = t.insertRow();

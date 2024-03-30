@@ -41,7 +41,7 @@ window.addEventListener('load', function() {
 		}
 	}
 	function generateTable(n) {
-		t.replaceChildren();
+		t.innerText='';
 		var size = boards[n].substring(0, 1);
 		var content = boards[n].substring(1);
 		for (var i = 0; i < size; i++) {

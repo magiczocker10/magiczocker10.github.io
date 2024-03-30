@@ -66,7 +66,7 @@ window.addEventListener('load', function() {
 		}
 	}
 	function generateTable(size) {
-		t.replaceChildren();
+		t.innerText='';
 		for (var i = 0; i < size; i++) {
 			var row = t.insertRow();
 			for (var j = 0; j < size; j++) {
@@ -89,7 +89,7 @@ window.addEventListener('load', function() {
 		size = Number(document.getElementById("sizeselector").selectedOptions[0].dataset.size);
 		t.setAttribute('data-size', size);
 		var i = document.getElementById('input');
-		i.replaceChildren();
+		i.innerText='';
 		var s = sizes[size];
 		for (var j = 0; j < s[1]; j++) {
 			var r = i.insertRow();

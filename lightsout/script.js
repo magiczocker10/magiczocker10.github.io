@@ -45,7 +45,7 @@ window.addEventListener('load', function() {
 	}
 
 	function reset() {
-		t.replaceChildren();
+		t.innerText='';
 		clicks = 0;
 		wfactive = wrapfield.checked;
 		counter.innerText = 'Steps: 0';
