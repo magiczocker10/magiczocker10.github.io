@@ -13,6 +13,13 @@ window.addEventListener('load', function() {
 		}
 		return a === ' abcdefghijklmno';
 	}
+	function convertNodeListToArray(nl) {
+		var toReturn = [];
+		for (var i = 0; i < nl.length; i++) {
+			toReturn.push(nl[i]);
+		}
+		return toReturn;
+	}
 	function getRandomizedField() {
 		var s = (' abcdefghijklmno').split('');
 		for (var i = 0; i < 30; i++) {
@@ -45,9 +52,9 @@ window.addEventListener('load', function() {
 		if (wn.textContent.length) {return;}
 		var emptyCell = document.querySelector('td[data-content=" "]');
 		if (emptyCell.cellIndex === e.target.cellIndex) {
-			moveEntry(Array.from(document.querySelectorAll('td:nth-child(' + (emptyCell.cellIndex + 1) + ')')), emptyCell.parentElement.rowIndex, e.target.parentElement.rowIndex);
+			moveEntry(convertNodeListToArray(document.querySelectorAll('td:nth-child(' + (emptyCell.cellIndex + 1) + ')')), emptyCell.parentElement.rowIndex, e.target.parentElement.rowIndex);
 		} else if (emptyCell.parentElement.rowIndex === e.target.parentElement.rowIndex) {
-			moveEntry(Array.from(emptyCell.parentElement.children), emptyCell.cellIndex, e.target.cellIndex);
+			moveEntry(convertNodeListToArray(emptyCell.parentElement.children), emptyCell.cellIndex, e.target.cellIndex);
 		}
 		if (checkWin()) {
 			wn.textContent = 'You won!';
