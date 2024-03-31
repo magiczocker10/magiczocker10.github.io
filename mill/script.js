@@ -23,20 +23,13 @@ window.addEventListener('load', function() {
 	var hasMill = false;
 	var clicked;
 	var t = document.getElementById('board');
-	function convertNodeListToArray(nl) {
-		var toReturn = [];
-		for (var i = 0; i < nl.length; i++) {
-			toReturn.push(nl[i]);
-		}
-		return toReturn;
-	}
 	function isValidMove(s, d) { // source, destination
 		if (d.getAttribute('data-color') !== '' || s === d) {return false;}
 		if (s.parentElement.rowIndex === d.parentElement.rowIndex) {
 			return Math.abs(s.getAttribute('data-field').charCodeAt(0) - d.getAttribute('data-field').charCodeAt(0)) === 1;
 		}
 		if (s.getAttribute('data-column') === d.getAttribute('data-column')) {
-			var _ = convertNodeListToArray(document.querySelectorAll('td[data-column="' + s.getAttribute('data-column') + '"]'));
+			var _ = toArray(document.querySelectorAll('td[data-column="' + s.getAttribute('data-column') + '"]'));
 			return Math.abs(_.indexOf(s) - _.indexOf(d)) === 1;
 		}
 		return false;
