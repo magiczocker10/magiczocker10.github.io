@@ -1,0 +1,109 @@
+body {
+	background: #36454F;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+    margin: 0;
+	user-select: none;
+    text-align: center;
+	background: #36454F;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+button {
+	align-items: center;
+	background-color: #fb8b24;
+	border: 1px solid #fb8b24;
+	border-radius: 3px;
+	box-sizing: content-box;
+	color: #000;
+	cursor: pointer;
+	display: inline-flex;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .15px;
+	min-height: 18px;
+	padding: 7px 18px;
+	text-transform: uppercase;
+}
+#controls {
+    top: 0;
+    font-size: x-large;
+    height: 40px;
+    border-bottom: 1px solid #FB8B24;
+    background: #FAF0E6;
+    position: fixed;
+    width: 100%;
+}
+#board {
+    margin: auto;
+    border-spacing: 0;
+    margin-top: 50px;
+	background: #fff;
+}
+/* Straights */
+td[data-dir="0"][data-dirold="0"], /* Up + Up */
+td[data-dir="2"][data-dirold="2"], /* Down + Down */
+td[data-dir="0"][data-dirold="2"], /* Up + Down */
+td[data-dir="2"][data-dirold="0"] { /* Down + Up */
+	background-image: url('snake_straight.bmp');
+    transform: rotate(0deg);
+}
+
+td[data-dir="1"][data-dirold="1"], /* Right + Right */
+td[data-dir="3"][data-dirold="3"], /* Left + Left */
+td[data-dir="1"][data-dirold="3"], /* Right + Left */
+td[data-dir="3"][data-dirold="1"] { /* Left + Right */
+	background-image: url('snake_straight.bmp');
+    transform: rotate(90deg);
+}
+
+/* Corners */
+td[data-dirold="0"][data-dir="1"], /* Up + Right */
+td[data-dirold="3"][data-dir="2"] { /* Left + Down */
+    background-image: url('snake_corner.bmp');
+    transform: rotate(0deg);
+}
+td[data-dirold="0"][data-dir="3"], /* Up + Left */
+td[data-dirold="1"][data-dir="2"] { /* Right + Down */
+    background-image: url('snake_corner.bmp');
+    transform: rotate(90deg);
+}
+td[data-dirold="1"][data-dir="0"], /* Right + Up */
+td[data-dirold="2"][data-dir="3"] { /* Down + Left */
+    background-image: url('snake_corner.bmp');
+    transform: rotate(180deg);
+}
+td[data-dirold="2"][data-dir="1"], /* Down + Right */
+td[data-dirold="3"][data-dir="0"] { /* Left + Up */
+    background-image: url('snake_corner.bmp');
+    transform: rotate(270deg);
+}
+
+/* Tails */
+td[data-dir="0"] { /* Up */
+	background-image: url('snake_tail.bmp');
+    transform: rotate(0deg);
+}
+td[data-dir="1"] {  /* Right */
+	background-image: url('snake_tail.bmp');
+    transform: rotate(90deg);
+}
+td[data-dir="2"] {  /* Down */
+	background-image: url('snake_tail.bmp');
+    transform: rotate(180deg);
+}
+td[data-dir="3"] {  /* Left */
+	background-image: url('snake_tail.bmp');
+    transform: rotate(270deg);
+}
+td[data-apple] {
+	background: red;
+}
+td {
+    /*border: 1px solid;*/
+	width: 20px;
+	height: 20px;
+    background-size: 20px 20px;
+	image-rendering: pixelated;
+	background-repeat: no-repeat;
+	padding: 0;
+}
