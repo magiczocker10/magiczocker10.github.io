@@ -1,8 +1,8 @@
 // jshint jquery:false, browser:true, devel:true, camelcase:true, curly:false, eqeqeq:true, esversion: 5, forin:true, freeze:true, immed:true, latedef:true, leanswitch:true, newcap:true, noarg:true, regexp:true, strict:true, trailing:false, undef:true, unused:true
 window.addEventListener('load', function() {
 	'use strict';
-	var fieldW = 20;
-	var fieldH = 20;
+	var fieldW = 60;
+	var fieldH = 30;
 	var addToDir = [
 		[0, -1],
 		[1, 0],
@@ -14,7 +14,7 @@ window.addEventListener('load', function() {
 	var t = document.getElementById('board');
 	var lost = false;
 	var timeout;
-	var intervalSnake = 150;
+	var intervalSnake = 500;
 	function placeApple() {
 		if (lost) {return;}
 		for (var i = 0; i < 10; i++) {
@@ -71,6 +71,7 @@ window.addEventListener('load', function() {
 			clearTimeout(timeout);
 		}
 		lost = false;
+		nextDir = 0;
 		t.textContent = '';
 		for (var i = 0; i < fieldH; i++) {
 			var r = t.insertRow();
@@ -79,7 +80,7 @@ window.addEventListener('load', function() {
 			}
 		}
 		snake = [
-			[3, 5, nextDir] // x, y, dir (0=up, 1=right, 2=down, 3=left)
+			[Math.floor(fieldW * 0.5), Math.floor(fieldH * 0.5), nextDir] // x, y, dir (0=up, 1=right, 2=down, 3=left)
 		];
 		t.rows[snake[0][1]].cells[snake[0][0]].setAttribute('data-dir', nextDir);
 		timeout = setTimeout(step, intervalSnake);
@@ -92,12 +93,20 @@ window.addEventListener('load', function() {
 		}
 		if ((e.key === 'ArrowUp' || e.keyCode === 38) && isAllowedDir(0)) {
 			nextDir = 0;
+			clearTimeout(timeout);
+			step();
 		} else if ((e.key === 'ArrowRight' || e.keyCode === 39) && isAllowedDir(1)) {
 			nextDir = 1;
+			clearTimeout(timeout);
+			step();
 		} else if ((e.key === 'ArrowDown' || e.keyCode === 40) && isAllowedDir(2)) {
 			nextDir = 2;
+			clearTimeout(timeout);
+			step();
 		} else if ((e.key === 'ArrowLeft' || e.keyCode === 37) && isAllowedDir(3)) {
 			nextDir = 3;
+			clearTimeout(timeout);
+			step();
 		}
 	});
 	reset();
