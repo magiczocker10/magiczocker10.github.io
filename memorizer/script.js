@@ -3,7 +3,7 @@ window.addEventListener('load', function() {
 	'use strict';
     var lightSpeed = 1000;
     var t = document.getElementById('board');
-    var order = [];
+	var order = [];
     var pos = 0;
     var timeout;
     var timeout2;
@@ -13,15 +13,21 @@ window.addEventListener('load', function() {
         if (timeout) { clearTimeout(timeout); }
         if (timeout2) { clearTimeout(timeout2); }
     }
+	function toggleLight(n, s) { // Number, status
+		var e = document.querySelectorAll('td[data-col="' + n + '"]');
+		for (var i = 0; i < e.length; i++) {
+			e[i].setAttribute('data-light-active', s);
+		}
+	}
     function showLight(on) {
         if (on) {
-            t.setAttribute('data-light', order[pos]);
+			toggleLight(order[pos], 1);
             clearTimeout_();
             timeout = setTimeout(showLight, lightSpeed, false);
             return;
         }
+        toggleLight(order[pos], 0);
         pos++;
-        t.removeAttribute('data-light');
         if (pos >= order.length) {
             pos = 0;
             gameStage = 1;
@@ -33,7 +39,7 @@ window.addEventListener('load', function() {
     function nextStage() {
         gameStage = 0;
         pos = 0;
-        order[order.length] = Math.floor(Math.random() * 4);
+        order[order.length] = String(Math.floor(Math.random() * 4));
         clearTimeout_();
         timeout = setTimeout(showLight, lightSpeed, true);
     }
@@ -45,19 +51,19 @@ window.addEventListener('load', function() {
     }
     function click(e) {
         if (gameStage < 1) {return;}
-        var c = Number(e.target.getAttribute('data-col'));
+        var c = e.target.getAttribute('data-col');
         if (c === ' ') {return;}
         if (c === order[pos]) {
             pos++;
             gameStage = 0;
-            t.setAttribute('data-light', c);
+			toggleLight(c, 1);
             clearTimeout_();
-            timeout = setTimeout(function() {
-                t.removeAttribute('data-light');
-                gameStage = 1;
-            }, lightSpeed);
+            timeout = setTimeout(toggleLight, lightSpeed, c, 0);
+			timeout2 = setTimeout(function() {
+				gameStage = 1;
+			}, lightSpeed);
             if (pos >= order.length) {
-                timeout2 = setTimeout(nextStage, lightSpeed);
+                timeout2 = setTimeout(nextStage, lightSpeed + 200);
             }
         } else {
             alert('Wrong click');
@@ -66,12 +72,19 @@ window.addEventListener('load', function() {
     }
     t.textContent = '';
     var s = '00110  12  32233';
-    for (var i = 0; i < 4; i++) {
+	var i;
+	var j;
+	// Fix for 3DS/2DS: First create the table, then apply the data-col attribute.
+	for (i = 0; i < 4; i++) {
         var r = t.insertRow();
-        for (var j = 0; j < 4; j++) {
+		for (j = 0; j < 4; j++) {
             var c = r.insertCell();
-            c.setAttribute('data-col', s.substring(i * 4 + j, i * 4 + j + 1));
             c.addEventListener('click', click);
+        }
+    }
+	for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
+            t.rows[i].cells[j].setAttribute('data-col', s.substring(i * 4 + j, i * 4 + j + 1));
         }
     }
     document.getElementById('resetbtn').addEventListener('click', reset);

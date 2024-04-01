@@ -38,25 +38,25 @@ button {
     border-spacing: 0;
     margin-top: 50px;
 }
-#board[data-light="0"] td[data-col="0"] {
+td[data-col="0"][data-light-active="1"] {
 	background: lightblue;
 }
 td[data-col="0"] {
     background: blue;
 }
-#board[data-light="1"] td[data-col="1"] {
+td[data-col="1"][data-light-active="1"] {
 	background: white;
 }
 td[data-col="1"] {
     background: yellow;
 }
-#board[data-light="2"] td[data-col="2"] {
+td[data-col="2"][data-light-active="1"] {
 	background: pink;
 }
 td[data-col="2"] {
     background: red;
 }
-#board[data-light="3"] td[data-col="3"] {
+td[data-col="3"][data-light-active="1"] {
 	background: lime;
 }
 td[data-col="3"] {
