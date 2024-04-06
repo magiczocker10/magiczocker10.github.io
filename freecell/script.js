@@ -199,7 +199,7 @@ window.addEventListener('load', function() {
 		for (var i = 0; i < t.length; i++) {
 			t[i].textContent = '';
 		}
-
+		// For testing:
 		cardToColumn(1, 'JD');
 		cardToColumn(1, 'KD');
 		cardToColumn(1, '2S');
