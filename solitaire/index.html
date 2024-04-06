@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Solitaire</title>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="author" content="magiczocker">
+		<meta name="description" content="Solitaire game.">
+
+		<script src="/global.js" type="text/javascript"></script>
+		<script src="script.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div id="controls">
+			<button id="resetbtn">Reset</button>
+		</div>
+		<div id="topslots">
+			<div data-clearonreset id="column0"></div>
+			<div data-clearonreset id="storageOpen"></div>
+			<div id="goal">
+				<div data-clearonreset data-istarget="." data-maxpermove="1" id="goal1"></div>
+				<div data-clearonreset data-istarget="." data-maxpermove="1" id="goal2"></div>
+				<div data-clearonreset data-istarget="." data-maxpermove="1" id="goal3"></div>
+				<div data-clearonreset data-istarget="." data-maxpermove="1" id="goal4"></div>
+			</div>
+		</div>
+		<div id="field">
+			<div data-clearonreset data-istarget="." id="column1" class="column"></div>
+			<div data-clearonreset data-istarget="." id="column2" class="column"></div>
+			<div data-clearonreset data-istarget="." id="column3" class="column"></div>
+			<div data-clearonreset data-istarget="." id="column4" class="column"></div>
+			<div data-clearonreset data-istarget="." id="column5" class="column"></div>
+			<div data-clearonreset data-istarget="." id="column6" class="column"></div>
+			<div data-clearonreset data-istarget="." id="column7" class="column"></div>
+		</div>
+	</body>
+</html>
